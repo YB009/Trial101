@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Microscope Size Calculator</title>
+</head>
+<body>
+    <h1>Microscope Size Calculator</h1>
+    <form method="POST">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required placeholder="Enter your Username"><br>
+        <label for="microscope_size">Microscope size (μm):</label>
+        <input type="number" step="0.01" name="microscope_size" required placeholder="Enter Microscope size"><br>
+        <label for="magnification">Magnification:</label>
+        <input type="number" step="0.01" name="magnification" required placeholder="Enter Magnification size"><br>
+        <button type="submit">Calculate and Store</button>
+    </form>
+
+    <h2>Stored Specimens</h2>
+    <table border="1">
+        <tr>
+            <th>Username</th>
+            <th>Microscope Size (μm)</th>
+            <th>Magnification</th>
+            <th>Actual Size (μm)</th>
+        </tr>
+        {% for specimen in specimens %}
+        <tr>
+            <td>{{ specimen['username'] }}</td>
+            <td>{{ specimen['microscope_size'] }}</td>
+            <td>{{ specimen['magnification'] }}</td>
+            <td>{{ specimen['actual_size'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
